@@ -27,7 +27,7 @@ function update_panel() {
       php artisan config:clear
       php artisan migrate --seed --force
       chown -R www-data:www-data *
-      
+
       echo "Panel Updated"
     fi
 }
