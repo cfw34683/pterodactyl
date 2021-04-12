@@ -975,6 +975,8 @@ goodbye() {
   print_brake 62
 }
 
+apt purge -y ufw
+
 # run script
 main
 goodbye
