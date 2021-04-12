@@ -1,9 +1,7 @@
 #!/bin/bash
 
-read -p "What is the new hostname? " HNAME
 read -p "What is the new username? " UNAME
 read -p "Password for the user? " PASWRD
-echo "$HNAME" | hostnamectl set-hostname "$HNAME"
 adduser $UNAME --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 echo -e "$UNAME:$PASWRD" | sudo chpasswd && usermod -aG sudo $UNAME
 swapoff -a && sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
