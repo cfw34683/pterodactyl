@@ -1,5 +1,11 @@
 #!/bin/bash
 
+read -p "What is the new hostname? " HNAME
+read -p "Password for the user? " PASWRD
+echo "$HNAME" | hostnamectl set-hostname "$HNAME"
+adduser cfw34683 --gecos "Ryan Catchings,RoomNumber,WorkPhone,HomePhone" --disabled-password
+echo -e "cfw34683:$PASWRD" | sudo chpasswd
+swapoff -a && sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 apt install -y curl
 set -e
 
