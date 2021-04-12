@@ -1,12 +1,5 @@
 #!/bin/bash
 
-read -p "What is the new username? " UNAME
-read -p "Password for the user? " PASWRD
-adduser $UNAME --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
-echo -e "$UNAME:$PASWRD" | sudo chpasswd && usermod -aG sudo $UNAME
-swapoff -a && sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
-apt install -y curl && apt purge -y ufw
-
 set -e
 
 #############################################################################
